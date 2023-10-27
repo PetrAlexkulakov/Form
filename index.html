@@ -8,15 +8,19 @@
 </head>
 <body>
     <div class="main">
-        <form class="main_form">
+        <form class="main_form" id="myForm">
             <label for="name">Name:</label>
-            <input type="text" name="name">
+            <input type="text" name="name" id="name">
+            <div id="nameError" class="error"></div>
             <label for="email">E-mail:</label>
-            <input type="email" name="email">
+            <input type="email" name="email" id="email">
+            <div id="emailError" class="error"></div>
             <label for="phone">Phone Number:</label>
             <input id="phone" type="text" name="phone">
+            <div id="phoneError" class="error"></div>
             <label for="message">Message:</label>
-            <input type="text" name="message">
+            <input type="text" name="message" id="message">
+            <div id="messageError" class="error"></div>
             <button type="submit" class="btn-submit">Submit</button>
         </form>
     </div>
