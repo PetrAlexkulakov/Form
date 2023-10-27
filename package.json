@@ -21,5 +21,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inputmask": "^5.0.8"
+  }
 }
