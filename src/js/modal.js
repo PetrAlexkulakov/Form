@@ -1,5 +1,6 @@
 document.getElementById('modalButton').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'block';
+    document.body.classList.add('no-overflow');
 });
 
 document.getElementById('closeModal').addEventListener('click', function() {
@@ -9,5 +10,6 @@ document.getElementById('closeModal').addEventListener('click', function() {
     setTimeout(() => {
         modal.style.display = 'none';
         modalContent.classList.remove('hide');
+        document.body.classList.remove('no-overflow');
     }, 500);
 });

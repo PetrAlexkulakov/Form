@@ -5,12 +5,8 @@ const sendData = (formData) => {
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = () => {
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    resolve(response);
-                } else {
-                    reject('Error occurred during the request');
-                }
+                const response = JSON.parse(xhr.responseText);
+                resolve(response);
             }
         };
         xhr.send(JSON.stringify(formData));
