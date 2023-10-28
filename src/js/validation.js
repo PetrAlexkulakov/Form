@@ -1,3 +1,5 @@
+import sendData from "../utils/ajax";
+
 document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const name = document.getElementById('name').value;
@@ -8,6 +10,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     const emailError = document.getElementById('emailError');
     const phoneError = document.getElementById('phoneError');
     const messageError = document.getElementById('messageError');
+    const serverMessage = document.querySelector('.server-message');
     let isValid = true;
 
     if (name === '') {
@@ -51,6 +54,31 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
     }
 
     if (isValid) {
-        console.log('Form is valid.');
+        const formData = {
+            name: name,
+            email: email,
+            phone: phone,
+            message: message,
+        };
+    
+        sendData(formData)
+            .then(response => {
+                if (response.status === 'success') {
+                    serverMessage.innerText = response.message
+                    serverMessage.classList.remove('error');
+
+                    document.getElementById('name').value  = '';
+                    document.getElementById('email').value  = '';
+                    document.getElementById('phone').value  = '';
+                    document.getElementById('message').value  = '';
+                } else if (response.status === 'error') {
+                    serverMessage.innerText = response.message
+                    serverMessage.classList.add('error');
+                }
+            })
+            .catch(error => {
+                serverMessage.innerText = error
+                serverMessage.classList.add('error');
+            });
     }
 });
