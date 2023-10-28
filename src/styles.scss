@@ -6,4 +6,14 @@ input {
 
 textarea {
     width: 100%;
+    max-width: 100%;
+}
+
+button {
+    width: min-content;
+    padding: 0 1%;
+    border-radius: 12%;
+    border: solid black 1px;
+    background-color: aqua;
+    cursor: pointer;
 }
